@@ -2,7 +2,9 @@
 
 ## Resultado entregado
 
-Repositorio local independiente en `C:\Users\Usuario\Downloads\IIP`, sin remoto ni publicación. Curso original de `../Módulos` intacto. Aplicación arrancada y verificada en `http://127.0.0.1:8765`, con pantalla de creación de la primera cuenta. **No hay usuarios ni operaciones de prueba en la base principal.** La prueba de navegador usa `.local/browser-qa` y otro puerto, que se detiene al terminar.
+Repositorio independiente en `C:\Users\Usuario\Downloads\IIP`, publicado en GitHub como **privado** en `https://github.com/meloler/iip`. El historial local se conserva y `main` sigue `origin/main`. `.local/`, SQLite, extracciones y documentos PDF/XLSX están excluidos. Curso original de `../Módulos` intacto. Aplicación local arrancada y verificada en `http://127.0.0.1:8765`, con pantalla de creación de la primera cuenta. **No hay usuarios ni operaciones de prueba en la base principal.** La prueba de navegador usa `.local/browser-qa` y otro puerto, que se detiene al terminar.
+
+La publicación remota de la app sigue pendiente: el backend depende de SQLite en disco local y el catálogo original de cursos tampoco está en GitHub. No conectar todavía Vercel ni ofrecer acceso multidispositivo hasta migrar a almacenamiento persistente, definir cómo alojar/importar la biblioteca privada y verificar autenticación y aislamiento en un despliegue. No se ha cambiado ningún proyecto Vercel ni Supabase existente.
 
 Stack decidido tras inspección: monolito React19/TypeScript/Vite + FastAPI/Pydantic + SQLite/FTS5; Python3.12. Dependencias fijadas por locks. Next.js y PostgreSQL evaluados; SSR no es necesario para este primer espacio privado y no se aprovisiona infraestructura. Decisiones en DECISIONS y ARCHITECTURE.
 
