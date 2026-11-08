@@ -72,7 +72,7 @@ for method, documents in methods.items():
     for name, key, pages in documents[:6]:
         lines.append(f"- {name}: páginas/hojas {', '.join(map(str, pages[:12]))}. ID `{key}`.")
     lines.append("")
-(ROOT / "docs" / "KNOWLEDGE_MAP.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+(ROOT / "docs" / "KNOWLEDGE_MAP.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 result = {
     "original_hashes_match": len(inventory),
     "documents_in_database": count,

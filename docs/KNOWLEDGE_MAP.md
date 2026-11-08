@@ -118,4 +118,3 @@ Detectado en 7 documentos. Ejemplos para el lote de revisión:
 - Clase 4.5. Synthetic forwards y call-put parity.pdf: páginas/hojas 1. ID `6e9a220642078d6256ee`.
 - Clase 4.7. Griegas de las opciones I (1).pdf: páginas/hojas 1, 2, 3. ID `dc72a2bee4e1f3b27184`.
 - Clase 4.8. Griegas de las opciones II.pdf: páginas/hojas 1, 2, 3. ID `dfdec4c9a6eca0bbac51`.
-
