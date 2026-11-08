@@ -41,7 +41,7 @@ Revisados textualmente el documento DCF de 23 páginas y la introducción a valu
 | Consola al finalizar QA | Sin errores ni warnings JavaScript capturados |
 | Arranque | `scripts/start.ps1` inicia Uvicorn en 127.0.0.1:8765; pantalla inicial de cuenta observada |
 
-Evidencia local excluida de Git: `.local/verification.txt`, `.local/catalog-verification.json`, `.local/ingest-summary.json`, `.local/proofs/dashboard-demo.jpg` y renders de QA. El screenshot usa el espacio DEMO de pruebas, no una cartera real.
+Evidencia local excluida de Git: `.local/verification.txt`, `.local/catalog-verification.json`, `.local/ingest-summary.json`, `.local/proofs/iip-ready.jpg` y renders de QA. La captura de inicio muestra la base principal lista para crear la cuenta; el flujo financiero se probó en el espacio DEMO aislado.
 
 ## Incidencias corregidas durante el hito
 
