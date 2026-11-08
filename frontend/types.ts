@@ -1,0 +1,133 @@
+export type Company = {
+  id: string;
+  ticker: string;
+  name: string;
+  sector: string;
+  country: string;
+  currency: string;
+  exchange: string;
+  price: string;
+  revenue: string;
+  ebit: string;
+  net_income: string;
+  fcff: string;
+  net_debt: string;
+  shares: string;
+  roic: string | null;
+  growth: string;
+  pe: string | null;
+  pb: string | null;
+  operating_margin: string;
+  market_cap: string;
+  dcf_applicable: boolean;
+  description: string;
+  source: string;
+  as_of: string;
+  data_type: string;
+  observations: Observation[];
+};
+export type Observation = {
+  metric: string;
+  value: string | null;
+  unit: string;
+  period: string;
+  source: string;
+  availability: string;
+  published_at: string;
+  updated_at: string;
+  data_type: string;
+};
+export type Watch = { company_id: string; created_at: string };
+export type Position = {
+  company_id: string;
+  quantity: string;
+  cost: string;
+  value: string | null;
+  unrealized: string | null;
+};
+export type Trade = {
+  id: string;
+  company_id: string;
+  kind: string;
+  quantity: string;
+  price: string;
+  fees: string;
+  occurred_at: string;
+  currency: string;
+};
+export type Portfolio = {
+  positions: Position[];
+  cost: string;
+  market_value: string | null;
+  unrealized: string | null;
+  realized: string;
+  dividends: string;
+  trades: Trade[];
+  currency: string;
+  valuation_status: string;
+};
+export type Document = {
+  id: string;
+  name: string;
+  format: string;
+  module: string;
+  page_count: number;
+  methods: Record<string, number[]>;
+  status: string;
+  review_status: string;
+  low_text_pages: number[];
+  duplicate_of: string | null;
+  sha256: string;
+};
+export type Evidence = {
+  document_id: string;
+  page_number: number;
+  text: string;
+  name: string;
+  module: string;
+  format: string;
+  original_url: string;
+  locator_type: string;
+};
+export type Assumptions = {
+  fcff: string;
+  growth: string;
+  wacc: string;
+  terminal_growth: string;
+  net_debt: string;
+  shares: string;
+  price: string;
+  years: number;
+};
+export type DCF = {
+  method_version: string;
+  projections: { year: number; fcff: string; present_value: string }[];
+  enterprise_value: string;
+  equity_value: string;
+  terminal_value: string;
+  pv_terminal: string;
+  value_per_share: string;
+  margin_of_safety: string | null;
+  terminal_share: string;
+  warnings: string[];
+};
+export type SavedValuation = {
+  id: string;
+  company_id: string;
+  created_at: string;
+  assumptions: Assumptions;
+  result: DCF;
+};
+export type Health = {
+  status: string;
+  data_mode: string;
+  provider_configured: boolean;
+};
+export type Workspace = {
+  companies: Company[];
+  watch: Watch[];
+  portfolio: Portfolio;
+  documents: Document[];
+  valuations: SavedValuation[];
+  health: Health;
+};

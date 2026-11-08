@@ -1,0 +1,10 @@
+CREATE TABLE users(id TEXT PRIMARY KEY, username TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL);
+CREATE TABLE sessions(token_hash TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id), expires_at INTEGER NOT NULL);
+CREATE TABLE watchlist(user_id TEXT NOT NULL REFERENCES users(id), company_id TEXT NOT NULL, created_at TEXT NOT NULL, PRIMARY KEY(user_id,company_id));
+CREATE TABLE trades(id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id), company_id TEXT NOT NULL, kind TEXT NOT NULL CHECK(kind IN ('BUY','SELL','DIVIDEND')), quantity TEXT NOT NULL, price TEXT NOT NULL, fees TEXT NOT NULL, occurred_at TEXT NOT NULL, currency TEXT NOT NULL, created_at TEXT NOT NULL);
+CREATE INDEX trades_owner ON trades(user_id,occurred_at,created_at);
+CREATE TABLE valuations(id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id), company_id TEXT NOT NULL, assumptions_json TEXT NOT NULL, result_json TEXT NOT NULL, created_at TEXT NOT NULL, method_version TEXT NOT NULL);
+CREATE TABLE documents(id TEXT PRIMARY KEY, name TEXT NOT NULL, relative_path TEXT UNIQUE NOT NULL, format TEXT NOT NULL, module TEXT NOT NULL, page_count INTEGER NOT NULL, sha256 TEXT NOT NULL, details_json TEXT NOT NULL);
+CREATE TABLE pages(id INTEGER PRIMARY KEY, document_id TEXT NOT NULL REFERENCES documents(id) ON DELETE CASCADE, page_number INTEGER NOT NULL, text TEXT NOT NULL, UNIQUE(document_id,page_number));
+CREATE VIRTUAL TABLE pages_fts USING fts5(text, content='pages', content_rowid='id', tokenize='unicode61 remove_diacritics 2');
+CREATE TABLE settings(key TEXT PRIMARY KEY,value TEXT NOT NULL);

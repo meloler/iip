@@ -1,0 +1,38 @@
+{
+  "name": "investment-intelligence-platform",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "overrides": {
+    "minimatch": "11.0.1"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b",
+    "lint": "eslint frontend --max-warnings 0",
+    "format": "prettier --write frontend vite.config.ts eslint.config.js",
+    "format:check": "prettier --check frontend vite.config.ts eslint.config.js"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.10",
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "latest",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "latest",
+    "globals": "^16.0.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.72.1",
+    "vite": "latest"
+  }
+}
